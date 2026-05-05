@@ -132,7 +132,7 @@ list.innerHTML = `<div class="download__options-packages">${out.map((p, i) => `
                 </div>
                 ${p.summary ? `<div class="download-card__summary">${esc(p.summary)}</div>` : ''}
             </div>
-            ${p.dlUrl ? `<a class="download-card__btn" href="${p.dlUrl}" target="_blank" rel="noopener"><span class="download-card__btn-content">${dlIcon}<span>.rpm</span></span></a>` : ''}
+            ${p.dlUrl ? `<a class="download-card__btn btn btn--primary btn--pill" href="${p.dlUrl}" target="_blank" rel="noopener"><span class="download-card__btn-content">${dlIcon}<span>.rpm</span></span></a>` : ''}
         </div>
     </div>`).join('')}</div>`;
 
