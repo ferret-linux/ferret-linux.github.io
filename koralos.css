@@ -1,0 +1,117 @@
+/* ============================================================
+   KORALOS THEME — Sea / Coral / Kelp
+   KDE Plasma desktop: coastal, deep ocean, living reef
+   Override ferret.css variables only
+   ============================================================ */
+
+:root {
+  /* Core palette — coral as accent, deep teal base */
+  --color-amber: #e8705a; /* coral reef */
+  --color-amber-hot: #f08870; /* bright coral hover */
+  --color-amber-dim: #c85840; /* deep coral pressed */
+  --color-amber-glow: rgba(232, 112, 90, 0.18);
+  --color-amber-subtle: rgba(232, 112, 90, 0.1);
+
+  /* Blueprint base — ocean deep / sea floor navy-teal */
+  --color-blueprint-deep: #050f14;
+  --color-blueprint-mid: #091820;
+  --color-blueprint-raised: #0e2230;
+  --color-blueprint-line: #133040;
+  --color-blueprint-rule: #1e4858;
+
+  /* Text — cool sea tones */
+  --color-ink-bright: #d8eee8; /* sea foam white */
+  --color-ink-mid: #88b8b0; /* muted kelp */
+  --color-ink-muted: #3a6870; /* deep teal muted */
+  --color-ink-on-accent: #050f14;
+
+  /* Semantic remaps */
+  --color-fur-dark: var(--color-amber);
+  --color-midnight: var(--color-blueprint-deep);
+  --color-pelt: var(--color-ink-muted);
+  --color-fur-light: var(--color-ink-mid);
+  --color-cream: var(--color-ink-bright);
+
+  --color-bg-base: var(--color-blueprint-deep);
+  --color-bg-surface: var(--color-blueprint-mid);
+  --color-bg-elevated: var(--color-blueprint-raised);
+  --color-bg-overlay: rgba(232, 112, 90, 0.06);
+
+  --color-border: rgba(19, 48, 64, 0.9);
+  --color-border-strong: rgba(30, 72, 88, 1);
+  --color-border-focus: var(--color-amber);
+
+  --color-text-primary: var(--color-ink-bright);
+  --color-text-secondary: var(--color-ink-mid);
+  --color-text-muted: var(--color-ink-muted);
+  --color-text-accent: var(--color-amber);
+  --color-text-on-accent: var(--color-ink-on-accent);
+
+  --color-accent: var(--color-amber);
+  --color-accent-hover: var(--color-amber-hot);
+  --color-accent-active: var(--color-amber-dim);
+  --color-accent-subtle: var(--color-amber-subtle);
+  --color-accent-glow: var(--color-amber-glow);
+
+  /* Override semantic greens → kelp-teal tones */
+  --color-success: #4aaa88;
+  --color-info: #4aa0c0;
+  --color-warning: #d89040;
+}
+
+/* Ocean-teal blueprint grid */
+body {
+  background-image:
+    linear-gradient(rgba(30, 72, 88, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 72, 88, 0.28) 1px, transparent 1px),
+    linear-gradient(rgba(30, 72, 88, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 72, 88, 0.09) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    20px 20px,
+    20px 20px;
+}
+
+/* Hero — deep ocean glow with coral warmth */
+.hero__bg {
+  background:
+    radial-gradient(
+      ellipse 65% 50% at 55% 45%,
+      rgba(232, 112, 90, 0.06) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 80% 70% at 10% 110%,
+      rgba(0, 80, 100, 0.35) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 90% 10%,
+      rgba(19, 48, 64, 0.4) 0%,
+      transparent 60%
+    );
+}
+
+.hero__bg::before,
+.hero__bg::after {
+  border-color: rgba(232, 112, 90, 0.4);
+}
+
+.navbar::before {
+  background:
+    linear-gradient(90deg, var(--color-amber) 2px, transparent 2px) left top /
+      8px 100% no-repeat,
+    linear-gradient(90deg, var(--color-amber) 2px, transparent 2px) right top /
+      8px 100% no-repeat;
+  opacity: 0.35;
+}
+
+.section--tinted {
+  background: rgba(9, 24, 32, 0.94);
+}
+
+/* Kelp-green secondary tint on feature card icons */
+.feature-card__icon {
+  border-color: rgba(30, 72, 88, 0.8);
+}

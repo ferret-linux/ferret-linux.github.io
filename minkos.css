@@ -1,0 +1,103 @@
+/* ============================================================
+   MINKOS THEME — Ochre / Amber / Brown
+   The base/tty distro: earthy, warm, archival
+   Override ferret.css variables only
+   ============================================================ */
+
+:root {
+  /* Core palette */
+  --color-amber: #c8932a; /* deep ochre gold */
+  --color-amber-hot: #e0a83c; /* warm hover */
+  --color-amber-dim: #a87620; /* pressed */
+  --color-amber-glow: rgba(200, 147, 42, 0.18);
+  --color-amber-subtle: rgba(200, 147, 42, 0.1);
+
+  /* Blueprint base shifted warmer / darker brown */
+  --color-blueprint-deep: #110d05;
+  --color-blueprint-mid: #1a1408;
+  --color-blueprint-raised: #221b0c;
+  --color-blueprint-line: #3d2e10;
+  --color-blueprint-rule: #5a4418;
+
+  /* Text — warmer tones */
+  --color-ink-bright: #f0e4c8;
+  --color-ink-mid: #c8b088;
+  --color-ink-muted: #7a6040;
+  --color-ink-on-accent: #110d05;
+
+  /* Semantic remaps */
+  --color-fur-dark: var(--color-amber);
+  --color-midnight: var(--color-blueprint-deep);
+  --color-pelt: var(--color-ink-muted);
+  --color-fur-light: var(--color-ink-mid);
+  --color-cream: var(--color-ink-bright);
+
+  --color-bg-base: var(--color-blueprint-deep);
+  --color-bg-surface: var(--color-blueprint-mid);
+  --color-bg-elevated: var(--color-blueprint-raised);
+  --color-bg-overlay: rgba(200, 147, 42, 0.07);
+
+  --color-border: rgba(61, 46, 16, 0.8);
+  --color-border-strong: rgba(90, 68, 24, 1);
+  --color-border-focus: var(--color-amber);
+
+  --color-text-primary: var(--color-ink-bright);
+  --color-text-secondary: var(--color-ink-mid);
+  --color-text-muted: var(--color-ink-muted);
+  --color-text-accent: var(--color-amber);
+  --color-text-on-accent: var(--color-ink-on-accent);
+
+  --color-accent: var(--color-amber);
+  --color-accent-hover: var(--color-amber-hot);
+  --color-accent-active: var(--color-amber-dim);
+  --color-accent-subtle: var(--color-amber-subtle);
+  --color-accent-glow: var(--color-amber-glow);
+}
+
+/* Brown-tinted blueprint grid */
+body {
+  background-image:
+    linear-gradient(rgba(90, 68, 24, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 68, 24, 0.25) 1px, transparent 1px),
+    linear-gradient(rgba(90, 68, 24, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(90, 68, 24, 0.08) 1px, transparent 1px);
+  background-size:
+    80px 80px,
+    80px 80px,
+    20px 20px,
+    20px 20px;
+}
+
+/* Hero warm glow */
+.hero__bg {
+  background:
+    radial-gradient(
+      ellipse 70% 50% at 55% 45%,
+      rgba(200, 147, 42, 0.08) 0%,
+      transparent 65%
+    ),
+    radial-gradient(
+      ellipse 40% 60% at 10% 100%,
+      rgba(61, 46, 16, 0.4) 0%,
+      transparent 60%
+    );
+}
+
+/* Corner brackets: ochre */
+.hero__bg::before,
+.hero__bg::after {
+  border-color: rgba(200, 147, 42, 0.45);
+}
+
+.navbar::before {
+  background:
+    linear-gradient(90deg, var(--color-amber) 2px, transparent 2px) left top /
+      8px 100% no-repeat,
+    linear-gradient(90deg, var(--color-amber) 2px, transparent 2px) right top /
+      8px 100% no-repeat;
+  opacity: 0.4;
+}
+
+.section--tinted {
+  background: rgba(26, 20, 8, 0.94);
+}
