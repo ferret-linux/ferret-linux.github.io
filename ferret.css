@@ -399,11 +399,7 @@ body {
   background: var(--color-bg-elevated);
   text-decoration: none;
   color: var(--color-text);
-  transition: border-color 0.15s ease, transform 0.15s ease;
-}
-
-.category-card:hover {
-  transform: translateY(-2px);
+  transition: border-color 0.15s ease;
 }
 
 .category-card__num {
