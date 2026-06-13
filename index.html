@@ -23,7 +23,7 @@
     <div class="navbar__nav">
       <a href="#distros" class="navbar__link">Distros</a>
       <a href="#tools" class="navbar__link">Tools</a>
-      <a href="#packages" class="navbar__link">Packages</a>
+      <a href="#repos" class="navbar__link">Repositories</a>
     </div>
 
     <div class="navbar__tag">DWG NO. 001 · REV <span>A</span></div>
@@ -80,11 +80,107 @@
         <span class="category-card__link">View Tools →</span>
       </a>
 
-      <a href="#packages" class="category-card category-card--packages">
+      <a href="#repos" class="category-card category-card--packages">
         <span class="category-card__num">03</span>
-        <h3 class="category-card__title">Packages</h3>
+        <h3 class="category-card__title">Repositories</h3>
         <p class="category-card__desc">Repos and kernel modules that power the Ferret ecosystem — kmods and pkgs, ready to add.</p>
-        <span class="category-card__link">View Packages →</span>
+        <span class="category-card__link">View Repositories →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DISTROS -->
+<section class="section" id="distros">
+  <div class="container">
+    <div class="section__label">Fig. 03 — Distros</div>
+    <h2 class="section__title">Four systems, one core.</h2>
+    <p class="section__subtitle">Each Ferret distro is an immutable, atomic OS with its own theme, desktop, and focus — pick the one that fits how you work.</p>
+
+    <div class="product-grid">
+      <a href="./koralos.html" class="product-card product-card--koral">
+        <img src="./assets/ferret-icon.png" alt="Koral-OS" class="product-card__icon">
+        <h3 class="product-card__title">Koral-OS</h3>
+        <p class="product-card__desc">Ocean and reef inspired. Calm, cool, and built for everyday creative work.</p>
+        <span class="product-card__link">Visit Koral-OS →</span>
+      </a>
+
+      <a href="./minkos.html" class="product-card product-card--mink">
+        <img src="./assets/ferret-icon.png" alt="Mink-OS" class="product-card__icon">
+        <h3 class="product-card__title">Mink-OS</h3>
+        <p class="product-card__desc">Earthy and grounded. Terrain-toned, sturdy, and built to last.</p>
+        <span class="product-card__link">Visit Mink-OS →</span>
+      </a>
+
+      <a href="./norixos.html" class="product-card product-card--norix">
+        <img src="./assets/ferret-icon.png" alt="Norix-OS" class="product-card__icon">
+        <h3 class="product-card__title">Norix-OS</h3>
+        <p class="product-card__desc">Sharp and futuristic. Built for speed, tinkering, and the latest tech.</p>
+        <span class="product-card__link">Visit Norix-OS →</span>
+      </a>
+
+      <a href="./rubinos.html" class="product-card product-card--rubin">
+        <img src="./assets/ferret-icon.png" alt="Rubin-OS" class="product-card__icon">
+        <h3 class="product-card__title">Rubin-OS</h3>
+        <p class="product-card__desc">Bold and polished. Deep red tones with a refined, gemstone finish.</p>
+        <span class="product-card__link">Visit Rubin-OS →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section" id="tools">
+  <div class="container">
+    <div class="section__label">Fig. 04 — Tools</div>
+    <h2 class="section__title">Built to run fast.</h2>
+    <p class="section__subtitle">A shared toolkit that ships across every Ferret distro — for managing containers, fetching system info, and orchestrating scripts.</p>
+
+    <div class="product-grid product-grid--3">
+      <a href="https://github.com/ferret-linux/otter" class="product-card product-card--tool">
+        <img src="./assets/ferret-icon.png" alt="Otter" class="product-card__icon">
+        <h3 class="product-card__title">Otter</h3>
+        <p class="product-card__desc">Container management made simple — a fast, Distrobox-like tool for Podman, Docker, and Nerdctl.</p>
+        <span class="product-card__link">View Otter →</span>
+      </a>
+
+      <a href="https://github.com/ferret-linux/zfetch" class="product-card product-card--tool">
+        <img src="./assets/ferret-icon.png" alt="zfetch" class="product-card__icon">
+        <h3 class="product-card__title">zfetch</h3>
+        <p class="product-card__desc">A blazing fast system fetch tool — get your system info instantly, no waiting around.</p>
+        <span class="product-card__link">View zfetch →</span>
+      </a>
+
+      <a href="https://github.com/ferret-linux/zrun" class="product-card product-card--tool">
+        <img src="./assets/ferret-icon.png" alt="zrun" class="product-card__icon">
+        <h3 class="product-card__title">zrun</h3>
+        <p class="product-card__desc">A lightweight script orchestrator for automating tasks across your Ferret system.</p>
+        <span class="product-card__link">View zrun →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- REPOSITORIES -->
+<section class="section" id="repos">
+  <div class="container">
+    <div class="section__label">Fig. 05 — Repositories</div>
+    <h2 class="section__title">Packages & kernel modules.</h2>
+    <p class="section__subtitle">Add the Ferret repos to your system to get access to our packages and kernel modules.</p>
+
+    <div class="product-grid product-grid--2">
+      <a href="./packages.html" class="product-card product-card--tool">
+        <img src="./assets/ferret-icon.png" alt="Ferret Packages" class="product-card__icon">
+        <h3 class="product-card__title">ferret-pkgs</h3>
+        <p class="product-card__desc">The main package repository — userland tools, apps, and libraries built for Ferret systems.</p>
+        <span class="product-card__link">Browse Packages →</span>
+      </a>
+
+      <a href="./packages.html" class="product-card product-card--tool">
+        <img src="./assets/ferret-icon.png" alt="Ferret Kmods" class="product-card__icon">
+        <h3 class="product-card__title">ferret-kmods</h3>
+        <p class="product-card__desc">Kernel module repository — drivers and extra kernel features for Ferret distros.</p>
+        <span class="product-card__link">Browse Kmods →</span>
       </a>
     </div>
   </div>

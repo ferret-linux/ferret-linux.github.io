@@ -452,11 +452,93 @@ body {
 }
 
 /* ============================================================
+   PRODUCT GRID (distros / tools / repos)
+   ============================================================ */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+.product-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.product-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-elevated);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s ease;
+}
+
+.product-card__icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: var(--space-2);
+}
+
+.product-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-card__desc {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  flex-grow: 1;
+}
+
+.product-card__link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Distro accent colors */
+.product-card--koral:hover { border-color: var(--color-coral); }
+.product-card--koral .product-card__link { color: var(--color-coral); }
+
+.product-card--mink:hover { border-color: var(--color-amber); }
+.product-card--mink .product-card__link { color: var(--color-amber); }
+
+.product-card--norix:hover { border-color: var(--color-cyan); }
+.product-card--norix .product-card__link { color: var(--color-cyan); }
+
+.product-card--rubin:hover { border-color: var(--color-ruby); }
+.product-card--rubin .product-card__link { color: var(--color-ruby); }
+
+/* Tools / repos — neutral amber touch */
+.product-card--tool:hover { border-color: var(--color-amber); }
+.product-card--tool .product-card__link { color: var(--color-amber); }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 
 @media (max-width: 860px) {
   .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-grid,
+  .product-grid--3,
+  .product-grid--2 {
     grid-template-columns: 1fr;
   }
 
