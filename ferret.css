@@ -1,0 +1,360 @@
+/* ============================================================
+   FERRET LINUX — Design System
+   Aesthetic: Technical Blueprint / Schematic
+   Blue-grey grid base · Amber primary accent · Coral secondary touch
+   Sharp geometry · Display + Mono type pairing
+   ============================================================ */
+
+:root {
+  /* --- Base palette --- */
+  --color-bg: #0f1620;
+  --color-bg-elevated: #141d2b;
+  --color-grid-line: rgba(255, 255, 255, 0.05);
+  --color-grid-line-strong: rgba(255, 255, 255, 0.09);
+
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.22);
+
+  --color-text: #eef1f5;
+  --color-text-muted: #8c9bac;
+  --color-text-faint: #5a6a7d;
+
+  /* --- Accents (mixed from product palettes) --- */
+  --color-amber: #d9a23c;       /* primary — Mink-OS derived */
+  --color-amber-bright: #f0b94f;
+  --color-amber-ink: #1a1404;   /* text-on-amber */
+
+  --color-coral: #e8705a;       /* secondary — Koral-OS derived */
+  --color-cyan: #2bb8d9;        /* tertiary touch — Norix-OS derived */
+  --color-ruby: #c9445f;        /* tertiary touch — Rubin-OS derived */
+
+  /* --- Typography --- */
+  --font-display: "Space Grotesk", "Arial Black", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  /* --- Spacing --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* --- Radius — sharp throughout --- */
+  --radius: 2px;
+
+  /* --- Misc --- */
+  --header-height: 64px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mono);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  /* Blueprint grid background */
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(var(--color-grid-line-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line-strong) 1px, transparent 1px);
+  background-size: 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background: rgba(15, 22, 32, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar__inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.navbar__logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.navbar__wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.navbar__wordmark span {
+  color: var(--color-amber);
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.navbar__link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
+}
+
+.navbar__link:hover {
+  color: var(--color-amber);
+}
+
+.navbar__tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  border: 1px solid var(--color-border);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius);
+}
+
+.navbar__tag span {
+  color: var(--color-coral);
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-amber);
+  color: var(--color-amber-ink);
+  border-color: var(--color-amber);
+}
+
+.btn--primary:hover {
+  background: var(--color-amber-bright);
+  border-color: var(--color-amber-bright);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border-strong);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-text);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.hero__inner {
+  padding: var(--space-24) 0 var(--space-24);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.hero__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-amber);
+  margin-bottom: var(--space-6);
+}
+
+.hero__label::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-amber);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-6);
+}
+
+.hero__title-accent {
+  color: var(--color-amber);
+}
+
+.hero__subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 42ch;
+  margin-bottom: var(--space-8);
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Hero art / placeholder figure box */
+.hero__art {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-elevated);
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__art img {
+  width: 45%;
+  opacity: 0.92;
+  filter: drop-shadow(0 0 40px rgba(217, 162, 60, 0.18));
+}
+
+.hero__art-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-amber);
+}
+
+.hero__art-corner--tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.hero__art-corner--tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+.hero__art-corner--bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+.hero__art-corner--br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.hero__art-caption {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+/* Coordinate readout (JS-driven) */
+.coord-readout {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+  text-align: right;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.coord-readout span {
+  color: var(--color-amber);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 860px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__tag {
+    display: none;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding: var(--space-16) 0;
+    text-align: left;
+  }
+
+  .hero__art {
+    order: -1;
+    max-width: 280px;
+  }
+}
