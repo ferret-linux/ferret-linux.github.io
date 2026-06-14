@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zrun — Ferret Linux</title>
+<link rel="icon" href="../../assets/ferret-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="zrun.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container navbar__inner">
+    <a href="../../index.html" class="navbar__brand">
+      <img src="../../assets/ferret-icon.png" alt="Ferret Linux" class="navbar__logo">
+      <span class="navbar__wordmark">Ferret <span>zrun</span></span>
+    </a>
+    <div class="navbar__nav">
+      <a href="#features" class="navbar__link">Features</a>
+      <a href="#scripts" class="navbar__link">Script Format</a>
+      <a href="../../index.html" class="navbar__link">← Back</a>
+    </div>
+    <div class="navbar__tag">TOOL · REV <span>A</span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="coord-readout">X <span id="coordX">000</span> · Y <span id="coordY">000</span></div>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <div class="hero__label">Fig. 01 — Overview</div>
+      <h1 class="hero__title">Your scripts.<br>Organised.<br><span class="hero__title-accent">One place.</span></h1>
+      <p class="hero__subtitle">zrun is a fast script manager and launcher written in Rust. Drop your <code>.sh</code> files in a directory, tag and describe them in-file, then pick and run them from a TUI or the CLI — with full run history tracked automatically.</p>
+      <div class="hero__actions">
+        <a href="https://github.com/ferret-linux/zrun-rs" class="btn btn--primary">View on GitHub →</a>
+        <a href="#scripts" class="btn btn--outline">Script Format</a>
+      </div>
+    </div>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">zrun — tui picker</span>
+      </div>
+      <div class="terminal__body">
+        <div class="terminal__line terminal__out terminal__ui-header"> Scripts <span class="terminal__ui-tag">6 found</span>                      History </div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out terminal__ui-row terminal__ui-row--selected"> ▶  backup-home       <span class="terminal__ui-tag-muted">backup</span>        <span class="terminal__ui-run">×12</span></div>
+        <div class="terminal__line terminal__out terminal__ui-row">    deploy-site       <span class="terminal__ui-tag-muted">deploy</span>        <span class="terminal__ui-run">×4</span></div>
+        <div class="terminal__line terminal__out terminal__ui-row">    clean-docker      <span class="terminal__ui-tag-muted">docker</span>        <span class="terminal__ui-run">×7</span></div>
+        <div class="terminal__line terminal__out terminal__ui-row">    update-system     <span class="terminal__ui-tag-muted">system</span>        <span class="terminal__ui-run">×31</span></div>
+        <div class="terminal__line terminal__out terminal__ui-row">    gen-keys          <span class="terminal__ui-tag-muted">crypto</span>        <span class="terminal__ui-run">×1</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out terminal__ui-preview"> Preview: backup-home </div>
+        <div class="terminal__line terminal__out terminal__ui-code">  <span class="terminal__comment">#!/bin/bash</span></div>
+        <div class="terminal__line terminal__out terminal__ui-code">  <span class="terminal__comment"># Back up home directory to external drive</span></div>
+        <div class="terminal__line terminal__out terminal__ui-code">  rsync -avz ~/ /mnt/backup/home/</div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out terminal__ui-footer"> [enter] run · [p] preview · [/] filter · [q] quit </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section__label">Fig. 02 — Features</div>
+    <h2 class="section__title">Script management, done right.</h2>
+    <p class="section__subtitle">Everything you need to keep your scripts organised and accessible — nothing you don't.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card__num">01</div>
+        <h3 class="feature-card__title">Directory-based</h3>
+        <p class="feature-card__body">Drop <code>.sh</code> files anywhere — <code>/etc/zrun-scripts</code>, <code>~/.local/share/zrun</code>, or any custom path. Multiple directories supported, highest-priority first.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">02</div>
+        <h3 class="feature-card__title">Tags & categories</h3>
+        <p class="feature-card__body">Tag scripts right in the file header with <code># @tags: backup, system</code>. Filter by tag in the TUI or with <code>zrun list --tag backup</code>.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">03</div>
+        <h3 class="feature-card__title">Run history</h3>
+        <p class="feature-card__body">Every run is recorded — script name, path, timestamp, and total run count. View history in the TUI sidebar or with <code>zrun history</code>.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">04</div>
+        <h3 class="feature-card__title">Preview before running</h3>
+        <p class="feature-card__body">See the full source of any script before executing it — inline in the TUI, or with <code>zrun show &lt;name&gt;</code>. No surprises.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">05</div>
+        <h3 class="feature-card__title">TUI picker</h3>
+        <p class="feature-card__body">A fast ratatui-based interactive picker with fuzzy search, tag filtering, live preview, and run-count display. Just run <code>zrun</code> with no arguments.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">06</div>
+        <h3 class="feature-card__title">CLI mode</h3>
+        <p class="feature-card__body">Skip the TUI entirely — <code>zrun run &lt;name&gt;</code>, <code>zrun list</code>, <code>zrun show</code>, <code>zrun history</code>. Scriptable, composable, fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT FORMAT -->
+<section class="section" id="scripts">
+  <div class="container">
+    <div class="section__label">Fig. 03 — Script Format</div>
+    <h2 class="section__title">Metadata lives in the file.</h2>
+    <p class="section__subtitle">No separate config file needed. Add a few comment lines to any <code>.sh</code> script and zrun picks them up automatically.</p>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">backup-home.sh</span>
+      </div>
+      <div class="terminal__body terminal__body--tall">
+        <div class="terminal__line terminal__out"><span class="terminal__comment">#!/bin/bash</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># Back up home directory to external drive</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># @tags: backup, system</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># @info</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># Rsyncs ~ to /mnt/backup/home.</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># Skips .cache and tmp dirs.</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># Safe to run while logged in.</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">rsync -avz \</div>
+        <div class="terminal__line terminal__out">  --exclude=<span class="terminal__string">'.cache'</span> \</div>
+        <div class="terminal__line terminal__out">  --exclude=<span class="terminal__string">'/tmp'</span> \</div>
+        <div class="terminal__line terminal__out">  ~/ /mnt/backup/home/</div>
+      </div>
+    </div>
+
+    <div class="script-legend">
+      <div class="legend-row">
+        <span class="legend-key"># First comment</span>
+        <span class="legend-desc">— used as the script description in the picker</span>
+      </div>
+      <div class="legend-row">
+        <span class="legend-key"># @tags: foo, bar</span>
+        <span class="legend-desc">— assigns tags for filtering and categorisation</span>
+      </div>
+      <div class="legend-row">
+        <span class="legend-key"># @info</span>
+        <span class="legend-desc">— starts a multi-line info block shown in the preview pane</span>
+      </div>
+      <div class="legend-row">
+        <span class="legend-key"># @info: text</span>
+        <span class="legend-desc">— single-line info variant</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="zrun.js"></script>
+</body>
+</html>
