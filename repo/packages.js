@@ -1,6 +1,6 @@
 const REPOS = {
-  pkgs:  { label: 'ferret-pkgs' },
-  kmods: { label: 'ferret-kmods' },
+  pkgs:  { label: 'ferret-pkgs',  wordmark: 'Packages Repository' },
+  kmods: { label: 'ferret-kmods', wordmark: 'Kmods Repository' },
 };
 
 let activeRepo = 'pkgs';
@@ -13,8 +13,10 @@ function switchRepo(repo) {
 
   const search = $('search-input');
   const repoSelect = $('repo-select');
+  const wordmark = $('navbar-repo-name');
   if (repoSelect) repoSelect.value = repo;
   if (search) search.value = '';
+  if (wordmark) wordmark.textContent = REPOS[repo].wordmark;
 
   loadRepo(repo);
 }
@@ -153,6 +155,8 @@ if (initialRepo && REPOS[initialRepo]) {
   const repoSelect = $('repo-select');
   if (repoSelect) repoSelect.value = initialRepo;
 }
+const wordmark = $('navbar-repo-name');
+if (wordmark) wordmark.textContent = REPOS[activeRepo].wordmark;
 loadRepo(activeRepo);
 
 $('search-input')?.addEventListener('input', renderPackages);
