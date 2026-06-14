@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otter — Ferret Linux</title>
+<link rel="icon" href="../../assets/ferret-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="otter.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container navbar__inner">
+    <a href="../../index.html" class="navbar__brand">
+      <img src="../../assets/ferret-icon.png" alt="Ferret Linux" class="navbar__logo">
+      <span class="navbar__wordmark">Ferret <span>Otter</span></span>
+    </a>
+    <div class="navbar__nav">
+      <a href="#features" class="navbar__link">Features</a>
+      <a href="#commands" class="navbar__link">Commands</a>
+      <a href="#distros" class="navbar__link">Distros</a>
+      <a href="#manifest" class="navbar__link">Manifest</a>
+      <a href="../../index.html" class="navbar__link">← Back</a>
+    </div>
+    <div class="navbar__tag">TOOL · REV <span>A</span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="coord-readout">X <span id="coordX">000</span> · Y <span id="coordY">000</span></div>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <div class="hero__label">Fig. 01 — Overview</div>
+      <h1 class="hero__title">Containers.<br>Done right.<br><span class="hero__title-accent">Finally.</span></h1>
+      <p class="hero__subtitle">Otter is a modern container manager built for Linux desktops. Works with Podman, Docker, and nerdctl. Declare your environment in TOML, assemble it in one command. Pause, restart, lock, inspect — full control, beginner friendly.</p>
+      <div class="hero__actions">
+        <a href="https://github.com/ferret-linux/otter" class="btn btn--primary">View on GitHub →</a>
+        <a href="https://github.com/ferret-linux/otter/blob/main/extras/manifest-example.toml" class="btn btn--outline">Example Manifest</a>
+      </div>
+    </div>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">otter — ferret linux</span>
+      </div>
+      <div class="terminal__body">
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd">otter list</span></div>
+        <div class="terminal__line terminal__out">NAME          IMAGE       STATUS    RUNTIME</div>
+        <div class="terminal__line terminal__out">arch-dev      arch        running   podman</div>
+        <div class="terminal__line terminal__out">fedora-work   fedora      paused    podman</div>
+        <div class="terminal__line terminal__out">kali-sec      kali        stopped   docker</div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd" id="typewriter-cmd"></span><span class="terminal__cursor" id="typewriter-cursor">█</span></div>
+        <div class="terminal__line terminal__out" id="typewriter-out"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section__label">Fig. 02 — Features</div>
+    <h2 class="section__title">What makes it different.</h2>
+    <p class="section__subtitle">Built on the tools you already have. Adds everything distrobox left out.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card__num">01</div>
+        <h3 class="feature-card__title">Multi-runtime</h3>
+        <p class="feature-card__body">Works with Podman, Docker, and nerdctl out of the box. No preference forced, no daemon required.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">02</div>
+        <h3 class="feature-card__title">TOML Manifests</h3>
+        <p class="feature-card__body">Declare your entire environment in a TOML file. Packages, volumes, hooks, isolation, hardware limits — all in one place. Run <code>otter assemble</code> and you're done.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">03</div>
+        <h3 class="feature-card__title">Full lifecycle</h3>
+        <p class="feature-card__body">Pause, restart, lock, upgrade, inspect, journal — not just create and enter. Real control over your containers.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">04</div>
+        <h3 class="feature-card__title">Hardware controls</h3>
+        <p class="feature-card__body">Set CPU, memory, and NVIDIA GPU access per container. No more unconstrained environments eating your system resources.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">05</div>
+        <h3 class="feature-card__title">Isolation controls</h3>
+        <p class="feature-card__body">Fine-grained control over netns, IPC, process, device, and group isolation. Lock down as much or as little as you need.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">06</div>
+        <h3 class="feature-card__title">App & bin export</h3>
+        <p class="feature-card__body">Export apps and binaries from inside containers to your host path. Use container software as if it were native.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">07</div>
+        <h3 class="feature-card__title">Hooks</h3>
+        <p class="feature-card__body">Run scripts before and after container init. Automate setup, link binaries, configure environments — fully scriptable.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card__num">08</div>
+        <h3 class="feature-card__title">Beginner friendly</h3>
+        <p class="feature-card__body">Sane defaults, clear commands, and a registry of ready-to-use images. Get a working container without reading a manual.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMANDS -->
+<section class="section" id="commands">
+  <div class="container">
+    <div class="section__label">Fig. 03 — Command Reference</div>
+    <h2 class="section__title">Full command set.</h2>
+    <p class="section__subtitle">Everything you need, nothing you don't.</p>
+
+    <div class="cmd-table">
+      <div class="cmd-row">
+        <div class="cmd-name">otter create</div>
+        <div class="cmd-desc">Create a new container from an image or manifest entry</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter enter</div>
+        <div class="cmd-desc">Enter a running container interactively</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter start</div>
+        <div class="cmd-desc">Start a stopped container</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter stop</div>
+        <div class="cmd-desc">Stop a running container</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter pause</div>
+        <div class="cmd-desc">Pause a running container, preserving its state</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter restart</div>
+        <div class="cmd-desc">Restart a container</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter remove</div>
+        <div class="cmd-desc">Remove a container and its data</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter upgrade</div>
+        <div class="cmd-desc">Upgrade a container to the latest image version</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter inspect</div>
+        <div class="cmd-desc">Show detailed info about a container</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter list</div>
+        <div class="cmd-desc">List all containers and their status</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter lock / unlock</div>
+        <div class="cmd-desc">Lock a container to prevent accidental changes or removal</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter journal</div>
+        <div class="cmd-desc">View logs and journal output from a container</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter assemble</div>
+        <div class="cmd-desc">Assemble one or more containers from a TOML manifest file</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter registry</div>
+        <div class="cmd-desc">Browse and pull from the Otter image registry</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-name">otter generate-entry</div>
+        <div class="cmd-desc">Generate a desktop entry for an exported app</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTROS -->
+<section class="section" id="distros">
+  <div class="container">
+    <div class="section__label">Fig. 04 — Supported Distros</div>
+    <h2 class="section__title">Wide compatibility.</h2>
+    <p class="section__subtitle">Pre-built images ready to pull from the Otter registry.</p>
+
+    <div class="distro-grid">
+      <div class="distro-tag">Arch Linux</div>
+      <div class="distro-tag">BlackArch</div>
+      <div class="distro-tag">Ubuntu LTS</div>
+      <div class="distro-tag">Ubuntu Stable</div>
+      <div class="distro-tag">Debian Stable</div>
+      <div class="distro-tag">Debian Testing</div>
+      <div class="distro-tag">Debian Unstable</div>
+      <div class="distro-tag">Fedora Stable</div>
+      <div class="distro-tag">Fedora Rawhide</div>
+      <div class="distro-tag">AlmaLinux</div>
+      <div class="distro-tag">Rocky Linux</div>
+      <div class="distro-tag">CentOS Stream</div>
+      <div class="distro-tag">Oracle Linux</div>
+      <div class="distro-tag">RHEL</div>
+      <div class="distro-tag">openSUSE Leap</div>
+      <div class="distro-tag">openSUSE Tumbleweed</div>
+      <div class="distro-tag">Alpine Stable</div>
+      <div class="distro-tag">Alpine Edge</div>
+      <div class="distro-tag">Kali Rolling</div>
+      <div class="distro-tag">Kali Edge</div>
+      <div class="distro-tag">Void glibc</div>
+      <div class="distro-tag">Void musl</div>
+      <div class="distro-tag">Gentoo</div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFEST -->
+<section class="section" id="manifest">
+  <div class="container">
+    <div class="section__label">Fig. 05 — TOML Manifest</div>
+    <h2 class="section__title">Declare, assemble, done.</h2>
+    <p class="section__subtitle">Define your entire container environment in a single TOML file. Commit it, share it, reproduce it anywhere.</p>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">manifest.toml</span>
+      </div>
+      <div class="terminal__body terminal__body--tall">
+        <div class="terminal__line terminal__out">[[container]]</div>
+        <div class="terminal__line terminal__out">name        = <span class="terminal__string">"arch-dev"</span></div>
+        <div class="terminal__line terminal__out">image       = <span class="terminal__string">"arch"</span></div>
+        <div class="terminal__line terminal__out">start-now   = <span class="terminal__bool">true</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">additional.packages = [<span class="terminal__string">"git"</span>, <span class="terminal__string">"vim"</span>, <span class="terminal__string">"nodejs"</span>]</div>
+        <div class="terminal__line terminal__out">additional.volumes  = [<span class="terminal__string">"/home/you/projects:/root/projects"</span>]</div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">exported.bins = [<span class="terminal__string">"/usr/bin/node"</span>, <span class="terminal__string">"/usr/bin/git"</span>]</div>
+        <div class="terminal__line terminal__out">exported.path = <span class="terminal__string">"~/.local/bin"</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">hooks.post-init = [<span class="terminal__string">"pacman -Syu --noconfirm"</span>]</div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">hardware.memory = <span class="terminal__string">"2g"</span></div>
+        <div class="terminal__line terminal__out">hardware.nvidia = <span class="terminal__bool">false</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">isolation.netns = <span class="terminal__bool">true</span></div>
+        <div class="terminal__line terminal__out">settings.shell  = <span class="terminal__string">"fish"</span></div>
+      </div>
+    </div>
+
+    <div class="assemble-block">
+      <div class="terminal__body terminal__body--flat">
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd">otter assemble manifest.toml</span></div>
+        <div class="terminal__line terminal__out terminal__out--muted"># assembles all containers defined in the manifest</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="otter.js"></script>
+</body>
+</html>
