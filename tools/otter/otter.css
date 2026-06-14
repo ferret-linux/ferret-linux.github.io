@@ -1,32 +1,46 @@
 /* ============================================================
-   FERRET LINUX — Design System
-   Aesthetic: Technical Blueprint / Schematic
-   Blue-grey grid base · Amber primary accent · Coral secondary touch
-   Sharp geometry · Display + Mono type pairing
+   OTTER — Page Stylesheet
+   Aesthetic: River · Ocean · Water · Sleek
+   Deep river dark base · Seafoam/teal accent · Sharp geometry
    ============================================================ */
 
 :root {
   /* --- Base palette --- */
-  --color-bg: #0f1620;
-  --color-bg-elevated: #141d2b;
-  --color-grid-line: rgba(255, 255, 255, 0.05);
-  --color-grid-line-strong: rgba(255, 255, 255, 0.09);
+  --color-bg: #0d1a1f;
+  --color-bg-elevated: #111f26;
+  --color-bg-terminal: #09141a;
+  --color-grid-line: rgba(56, 201, 160, 0.04);
+  --color-grid-line-strong: rgba(56, 201, 160, 0.08);
 
-  --color-border: rgba(255, 255, 255, 0.12);
-  --color-border-strong: rgba(255, 255, 255, 0.22);
+  --color-border: rgba(56, 201, 160, 0.1);
+  --color-border-strong: rgba(56, 201, 160, 0.22);
 
-  --color-text: #eef1f5;
-  --color-text-muted: #8c9bac;
-  --color-text-faint: #5a6a7d;
+  --color-text: #e0f2f0;
+  --color-text-muted: #4e8a85;
+  --color-text-faint: #1e3a38;
 
-  /* --- Accents (mixed from product palettes) --- */
-  --color-amber: #d9a23c;       /* primary — Mink-OS derived */
-  --color-amber-bright: #f0b94f;
-  --color-amber-ink: #1a1404;   /* text-on-amber */
+  /* --- Otter accents --- */
+  --color-teal: #38c9a0;
+  --color-teal-bright: #4ddbb2;
+  --color-teal-ink: #011a12;
+  --color-teal-dim: rgba(56, 201, 160, 0.12);
 
-  --color-coral: #e8705a;       /* secondary — Koral-OS derived */
-  --color-cyan: #2bb8d9;        /* tertiary touch — Norix-OS derived */
-  --color-ruby: #c9445f;        /* tertiary touch — Rubin-OS derived */
+  --color-ocean: #2a8fa8;
+  --color-ocean-dim: rgba(42, 143, 168, 0.1);
+
+  --color-nvidia: #76b900;
+  --color-nvidia-ink: #050d00;
+  --color-nvidia-dim: rgba(118, 185, 0, 0.15);
+
+  /* --- Terminal colours --- */
+  --color-term-prompt: #38c9a0;
+  --color-term-path: #2a8fa8;
+  --color-term-sep: #1e3a38;
+  --color-term-cmd: #e0f2f0;
+  --color-term-out: #2e6860;
+  --color-term-cursor: #38c9a0;
+  --color-term-string: #7dd4c0;
+  --color-term-bool: #2a8fa8;
 
   /* --- Typography --- */
   --font-display: "Space Grotesk", "Arial Black", sans-serif;
@@ -43,10 +57,7 @@
   --space-16: 4rem;
   --space-24: 6rem;
 
-  /* --- Radius — sharp throughout --- */
   --radius: 2px;
-
-  /* --- Misc --- */
   --header-height: 64px;
 }
 
@@ -65,7 +76,6 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
-  /* Blueprint grid background */
   background-image:
     linear-gradient(var(--color-grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px),
@@ -92,7 +102,7 @@ body {
   height: var(--header-height);
   display: flex;
   align-items: center;
-  background: rgba(15, 22, 32, 0.85);
+  background: rgba(13, 26, 31, 0.88);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -128,7 +138,7 @@ body {
 }
 
 .navbar__wordmark span {
-  color: var(--color-amber);
+  color: var(--color-teal);
 }
 
 .navbar__nav {
@@ -148,7 +158,7 @@ body {
 }
 
 .navbar__link:hover {
-  color: var(--color-amber);
+  color: var(--color-teal);
 }
 
 .navbar__tag {
@@ -162,7 +172,7 @@ body {
 }
 
 .navbar__tag span {
-  color: var(--color-coral);
+  color: var(--color-teal);
 }
 
 /* ============================================================
@@ -188,14 +198,14 @@ body {
 }
 
 .btn--primary {
-  background: var(--color-amber);
-  color: var(--color-amber-ink);
-  border-color: var(--color-amber);
+  background: var(--color-teal);
+  color: var(--color-teal-ink);
+  border-color: var(--color-teal);
 }
 
 .btn--primary:hover {
-  background: var(--color-amber-bright);
-  border-color: var(--color-amber-bright);
+  background: var(--color-teal-bright);
+  border-color: var(--color-teal-bright);
 }
 
 .btn--outline {
@@ -220,9 +230,9 @@ body {
 }
 
 .hero__inner {
-  padding: var(--space-24) 0 var(--space-24);
+  padding: var(--space-24) 0;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--space-16);
   align-items: center;
 }
@@ -235,7 +245,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-amber);
+  color: var(--color-teal);
   margin-bottom: var(--space-6);
 }
 
@@ -244,12 +254,12 @@ body {
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--color-amber);
+  background: var(--color-teal);
 }
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
   font-weight: 700;
   line-height: 1.05;
   text-transform: uppercase;
@@ -258,13 +268,13 @@ body {
 }
 
 .hero__title-accent {
-  color: var(--color-amber);
+  color: var(--color-teal);
 }
 
 .hero__subtitle {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-  max-width: 42ch;
+  max-width: 44ch;
   margin-bottom: var(--space-8);
 }
 
@@ -274,55 +284,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Hero art / placeholder figure box */
-.hero__art {
-  position: relative;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: var(--color-bg-elevated);
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  align-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero__art img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  opacity: 0.92;
-  filter: drop-shadow(0 0 40px rgba(217, 162, 60, 0.18));
-}
-
-.hero__art-corner {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--color-amber);
-}
-
-.hero__art-corner--tl { top: -1px; left: -1px; border-right: none; border-bottom: none; }
-.hero__art-corner--tr { top: -1px; right: -1px; border-left: none; border-bottom: none; }
-.hero__art-corner--bl { bottom: -1px; left: -1px; border-right: none; border-top: none; }
-.hero__art-corner--br { bottom: -1px; right: -1px; border-left: none; border-top: none; }
-
-.hero__art-caption {
-  position: absolute;
-  bottom: var(--space-4);
-  left: var(--space-4);
-  right: var(--space-4);
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-text-faint);
-}
-
-/* Coordinate readout (JS-driven) */
 .coord-readout {
   position: absolute;
   top: var(--space-6);
@@ -330,17 +291,108 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--color-text-faint);
-  text-align: right;
   pointer-events: none;
   z-index: 2;
 }
 
 .coord-readout span {
-  color: var(--color-amber);
+  color: var(--color-teal);
 }
 
 /* ============================================================
-   SECTIONS (generic)
+   TERMINAL
+   ============================================================ */
+
+.hero__terminal {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-terminal);
+  overflow: hidden;
+}
+
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-elevated);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.terminal__bar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-text-faint);
+  opacity: 0.5;
+}
+
+.terminal__bar-title {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-left: var(--space-2);
+}
+
+.terminal__body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  height: 280px;
+  overflow: hidden;
+}
+
+.terminal__body--tall {
+  height: auto;
+  overflow: visible;
+}
+
+.terminal__body--flat {
+  height: unset;
+  padding: var(--space-4) var(--space-6);
+  background: var(--color-bg-terminal);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.terminal__line {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.terminal__spacer {
+  height: var(--space-2);
+}
+
+.terminal__prompt { color: var(--color-term-prompt); font-weight: 600; }
+.terminal__sep    { color: var(--color-term-sep); }
+.terminal__path   { color: var(--color-term-path); }
+.terminal__cmd    { color: var(--color-term-cmd); }
+.terminal__out    { color: var(--color-term-out); }
+.terminal__string { color: var(--color-term-string); }
+.terminal__bool   { color: var(--color-term-bool); }
+
+.terminal__out--muted {
+  color: var(--color-text-faint);
+  font-style: italic;
+}
+
+.terminal__cursor {
+  color: var(--color-term-cursor);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ============================================================
+   SECTIONS
    ============================================================ */
 
 .section {
@@ -356,7 +408,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-amber);
+  color: var(--color-teal);
   margin-bottom: var(--space-4);
 }
 
@@ -365,7 +417,7 @@ body {
   display: block;
   width: 28px;
   height: 1px;
-  background: var(--color-amber);
+  background: var(--color-teal);
 }
 
 .section__title {
@@ -384,167 +436,162 @@ body {
 }
 
 /* ============================================================
-   CATEGORY GRID (homepage hub)
+   FEATURE GRID
    ============================================================ */
 
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-}
-
-.category-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-8);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: var(--color-bg-elevated);
-  text-decoration: none;
-  color: var(--color-text);
-  transition: border-color 0.15s ease;
-}
-
-.category-card__num {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: var(--color-text-faint);
-}
-
-.category-card__title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.category-card__desc {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  flex-grow: 1;
-}
-
-.category-card__link {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.category-card--distros:hover {
-  border-color: var(--color-coral);
-}
-.category-card--distros .category-card__link {
-  color: var(--color-coral);
-}
-
-.category-card--tools:hover {
-  border-color: var(--color-cyan);
-}
-.category-card--tools .category-card__link {
-  color: var(--color-cyan);
-}
-
-.category-card--packages:hover {
-  border-color: var(--color-amber);
-}
-.category-card--packages .category-card__link {
-  color: var(--color-amber);
-}
-
-/* ============================================================
-   PRODUCT GRID (distros / tools / repos)
-   ============================================================ */
-
-.product-grid {
+.feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-6);
+  gap: var(--space-4);
 }
 
-.product-grid--3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.product-grid--2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.product-card {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+.feature-card {
   padding: var(--space-6);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: var(--color-bg-elevated);
-  text-decoration: none;
-  color: var(--color-text);
   transition: border-color 0.15s ease;
 }
 
-.product-card__icon {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  margin-bottom: var(--space-2);
+.feature-card:hover {
+  border-color: var(--color-teal);
 }
 
-.product-card__title {
+.feature-card__num {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-4);
+}
+
+.feature-card__title {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
 }
 
-.product-card__desc {
+.feature-card__body {
+  font-size: 0.8rem;
   color: var(--color-text-muted);
-  font-size: 0.85rem;
-  flex-grow: 1;
+  line-height: 1.6;
 }
 
-.product-card__link {
+.feature-card__body code {
+  color: var(--color-teal);
+  background: var(--color-teal-dim);
+  padding: 1px 5px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+/* ============================================================
+   COMMAND TABLE
+   ============================================================ */
+
+.cmd-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cmd-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-6);
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  transition: background 0.12s ease;
+}
+
+.cmd-row:last-child {
+  border-bottom: none;
+}
+
+.cmd-row:hover {
+  background: rgba(56, 201, 160, 0.05);
+}
+
+.cmd-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-teal);
+  letter-spacing: 0.04em;
+}
+
+.cmd-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================================
+   DISTRO GRID
+   ============================================================ */
+
+.distro-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.distro-tag {
   font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg-elevated);
   color: var(--color-text-muted);
+  transition: all 0.12s ease;
 }
 
-/* Distro accent colors */
-.product-card--koral:hover { border-color: var(--color-coral); }
-.product-card--koral .product-card__link { color: var(--color-coral); }
+.distro-tag:hover {
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+  background: var(--color-teal-dim);
+}
 
-.product-card--mink:hover { border-color: var(--color-amber); }
-.product-card--mink .product-card__link { color: var(--color-amber); }
+/* ============================================================
+   MANIFEST SECTION
+   ============================================================ */
 
-.product-card--norix:hover { border-color: var(--color-cyan); }
-.product-card--norix .product-card__link { color: var(--color-cyan); }
-
-.product-card--rubin:hover { border-color: var(--color-ruby); }
-.product-card--rubin .product-card__link { color: var(--color-ruby); }
-
-/* Tools / repos — neutral amber touch */
-.product-card--tool:hover { border-color: var(--color-amber); }
-.product-card--tool .product-card__link { color: var(--color-amber); }
+.assemble-block {
+  margin-top: var(--space-6);
+}
 
 /* ============================================================
    RESPONSIVE
    ============================================================ */
 
+@media (max-width: 1100px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 860px) {
-  .category-grid {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding: var(--space-16) 0;
+  }
+
+  .feature-grid {
     grid-template-columns: 1fr;
   }
 
-  .product-grid,
-  .product-grid--3,
-  .product-grid--2 {
+  .cmd-row {
     grid-template-columns: 1fr;
+    gap: var(--space-2);
   }
 
   .navbar__nav {
@@ -553,16 +600,5 @@ body {
 
   .navbar__tag {
     display: none;
-  }
-
-  .hero__inner {
-    grid-template-columns: 1fr;
-    padding: var(--space-16) 0;
-    text-align: left;
-  }
-
-  .hero__art {
-    order: -1;
-    max-width: 280px;
   }
 }

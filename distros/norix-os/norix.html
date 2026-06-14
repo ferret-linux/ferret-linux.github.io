@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norix-OS — Ferret Linux</title>
+<link rel="icon" href="../../assets/norix-os.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="norix.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container navbar__inner">
+    <div class="navbar__brand">
+      <span class="navbar__wordmark">Norix <span>OS</span></span>
+    </div>
+    
+    <div class="navbar__nav">
+      <a href="#spec" class="navbar__link">Spec</a>
+      <a href="#preview" class="navbar__link">Preview</a>
+      <a href="#download" class="navbar__link">Download</a>
+      <a href="../../index.html" class="navbar__link">← Back</a>
+    </div>
+    <div class="navbar__tag">DWG NO. 003 · REV <span>A</span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="coord-readout" id="coordReadout">X <span id="coordX">000</span> · Y <span id="coordY">000</span></div>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <div class="hero__label">Fig. 01 — Overview</div>
+      <h1 class="hero__title">Fast by design.<br>Minimal by default.<br><span class="hero__title-accent">Built for speed.</span></h1>
+      <p class="hero__subtitle">Norix-OS is a Wayland-native, performance-first immutable Linux. Niri WM paired with Noctalia shell — preconfigured, opinionated, and fully customizable. Ghostty as your terminal. No flatpak store preloaded. Just a fast, clean base ready for whatever you throw at it.</p>
+      <div class="hero__actions">
+        <a href="#download" class="btn btn--primary">Download →</a>
+        <a href="https://github.com/ferret-linux" class="btn btn--outline">View on GitHub</a>
+      </div>
+    </div>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">ghostty — norix-os</span>
+      </div>
+      <div class="terminal__body">
+        <div class="terminal__line"><span class="terminal__prompt">norix@localhost</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd">uname -a</span></div>
+        <div class="terminal__line terminal__out">Linux norix-os 6.12.0-ferret #1 SMP x86_64 GNU/Linux</div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line"><span class="terminal__prompt">norix@localhost</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd">rpm -q norix-os</span></div>
+        <div class="terminal__line terminal__out">norix-os-1.0.0-1.ferret.x86_64</div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line"><span class="terminal__prompt">norix@localhost</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd" id="typewriter-cmd"></span><span class="terminal__cursor" id="typewriter-cursor">█</span></div>
+        <div class="terminal__line terminal__out" id="typewriter-out"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEC -->
+<section class="section" id="spec">
+  <div class="container">
+    <div class="section__label">Fig. 02 — Technical Specification</div>
+    <h2 class="section__title">What's in the box.</h2>
+    <p class="section__subtitle">Wayland-native from the ground up. Preconfigured so you can start fast, customizable so you never hit a wall.</p>
+
+    <div class="spec-table">
+      <div class="spec-row">
+        <div class="spec-key">BASE</div>
+        <div class="spec-val">Mink-OS — Fedora + bootc, atomic, image-based, OCI-native</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">WINDOW MANAGER</div>
+        <div class="spec-val">Niri — scrollable-tiling Wayland compositor, fast and minimal</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">SHELL / ENV</div>
+        <div class="spec-val">Noctalia — sleek, minimal Wayland desktop shell, preconfigured</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">LOGIN MANAGER</div>
+        <div class="spec-val">SDDM — fast, Wayland-ready display manager</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">TERMINAL</div>
+        <div class="spec-val">Ghostty — GPU-accelerated, native feel, fast startup</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">KEYBINDS & CONFIG</div>
+        <div class="spec-val">Preconfigured sane defaults — fully customizable, nothing locked down</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">GUI FLATPAK STORE</div>
+        <div class="spec-val">None preinstalled — install your preferred store via flatpak</div>
+        <div class="spec-tag spec-tag--off">NOT PRESENT</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">NON-FREE CODECS</div>
+        <div class="spec-val">Built in — H.264, H.265, AAC, and friends, no manual setup</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">OUT-OF-TREE KMODS</div>
+        <div class="spec-val">Ferret kmod repo layered in — broad hardware support out of the box</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">V4L2LOOPBACK</div>
+        <div class="spec-val">Built in — virtual video device support, no manual DKMS needed</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">ZFS</div>
+        <div class="spec-val">OpenZFS support baked in — ready to use, no post-install steps</div>
+        <div class="spec-tag spec-tag--on">INCLUDED</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-key">NVIDIA VARIANT</div>
+        <div class="spec-val">Separate image with proprietary NVIDIA drivers pre-layered</div>
+        <div class="spec-tag spec-tag--nvidia">SEPARATE IMAGE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW -->
+<section class="section" id="preview">
+  <div class="container">
+    <div class="section__label">Fig. 03 — Desktop Preview</div>
+    <h2 class="section__title">See it in action.</h2>
+    <div class="preview-block">
+      <img src="../../assets/norix-os-preview.png" alt="Norix-OS desktop preview" class="preview-img">
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="section" id="download">
+  <div class="container">
+    <div class="section__label">Fig. 04 — Download</div>
+    <h2 class="section__title">Pick your image.</h2>
+    <p class="section__subtitle">Two variants. Same fast Wayland core. Choose based on your hardware.</p>
+
+    <div class="download-grid">
+
+      <!-- Standard -->
+      <div class="download-card">
+        <div class="download-card__header">
+          <span class="download-card__num">01</span>
+          <div>
+            <h3 class="download-card__title">Norix-OS Standard</h3>
+            <p class="download-card__sub">Mesa · open drivers · universal</p>
+          </div>
+          <span class="download-card__badge">STABLE</span>
+        </div>
+        <div class="download-card__meta">
+          <div class="download-meta-row"><span class="download-meta-key">VERSION</span><span class="download-meta-val">1.0.0</span></div>
+          <div class="download-meta-row"><span class="download-meta-key">ARCH</span><span class="download-meta-val">x86_64</span></div>
+          <div class="download-meta-row"><span class="download-meta-key">SIZE</span><span class="download-meta-val">~1.5 GB</span></div>
+          <div class="download-meta-row"><span class="download-meta-key">FORMAT</span><span class="download-meta-val">.iso</span></div>
+        </div>
+        <div class="download-card__sha">
+          <div class="sha-label">SHA256</div>
+          <div class="sha-value">— placeholder — checksum will appear here on release —</div>
+        </div>
+        <a href="#" class="btn btn--primary btn--block">Download Standard →</a>
+      </div>
+
+      <!-- NVIDIA -->
+      <div class="download-card download-card--nvidia">
+        <div class="download-card__header">
+          <span class="download-card__num">02</span>
+          <div>
+            <h3 class="download-card__title">Norix-OS NVIDIA</h3>
+            <p class="download-card__sub">Proprietary NVIDIA drivers pre-layered</p>
+          </div>
+          <span class="download-card__badge download-card__badge--nvidia">NVIDIA</span>
+        </div>
+        <div class="download-card__meta">
+          <div class="download-meta-row"><span class="download-meta-key">VERSION</span><span class="download-meta-val">1.0.0</span></div>
+          <div class="download-meta-row"><span class="download-meta-key">ARCH</span><span class="download-meta-val">x86_64</span></div>
+          <div class="download-meta-row"><span class="download-meta-key">SIZE</span><span class="download-meta-val">~1.9 GB</span></div>
+          <div class="download-meta-row"><span class="download-meta-key">FORMAT</span><span class="download-meta-val">.iso</span></div>
+        </div>
+        <div class="download-card__sha">
+          <div class="sha-label">SHA256</div>
+          <div class="sha-value">— placeholder — checksum will appear here on release —</div>
+        </div>
+        <a href="#" class="btn btn--nvidia btn--block">Download NVIDIA →</a>
+      </div>
+
+    </div>
+
+    <div class="verify-block">
+      <div class="verify-block__label">Fig. 03a — Verify your download</div>
+      <div class="terminal__body terminal__body--flat">
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~/Downloads</span><span class="terminal__sep">$</span> <span class="terminal__cmd">sha256sum norix-os-1.0.0-x86_64.iso</span></div>
+        <div class="terminal__line terminal__out terminal__out--muted"># compare output against the SHA256 above</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="norix.js"></script>
+</body>
+</html>

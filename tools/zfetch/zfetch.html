@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>zfetch — Ferret Linux</title>
+<link rel="icon" href="../../assets/ferret-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="zfetch.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container navbar__inner">
+    <div class="navbar__brand">
+      <span class="navbar__wordmark">ferret <span>zfetch</span></span>
+    </div>
+    
+    <div class="navbar__nav">
+      <a href="#cli" class="navbar__link">CLI</a>
+      <a href="#config" class="navbar__link">Config</a>
+      <a href="#themes" class="navbar__link">Themes</a>
+      <a href="../../index.html" class="navbar__link">← Back</a>
+    </div>
+    <div class="navbar__tag">TOOL · REV <span>A</span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="coord-readout">X <span id="coordX">000</span> · Y <span id="coordY">000</span></div>
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <div class="hero__label">Fig. 01 — Overview</div>
+      <h1 class="hero__title">Your system.<br>Looking good.<br><span class="hero__title-accent">No config pain.</span></h1>
+      <p class="hero__subtitle">zfetch is a fast, good-looking system fetch tool written in Rust. Built-in TUI config editor, nine themes, custom ASCII and image art support, TOML config, and terminal-adaptive layout. No manual config file editing required.</p>
+      <div class="hero__actions">
+        <a href="https://github.com/ferret-linux/zfetch-rs" class="btn btn--primary">View on GitHub →</a>
+        <a href="https://github.com/ferret-linux/zfetch-rs/releases" class="btn btn--outline">Releases</a>
+      </div>
+    </div>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">zfetch — terminal</span>
+      </div>
+      <div class="terminal__body">
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd">zfetch</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">OS      </span><span class="terminal__val">Ferret Norix-OS x86_64</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">Kernel  </span><span class="terminal__val">6.12.0-ferret</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">Uptime  </span><span class="terminal__val">3h 42m</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">CPU     </span><span class="terminal__val">AMD Ryzen 9 7950X (32) @ 5.7GHz</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">GPU     </span><span class="terminal__val">NVIDIA RTX 4090</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">Memory  </span><span class="terminal__val">4.2 GiB / 64.0 GiB</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">Shell   </span><span class="terminal__val">fish 3.7.1</span></div>
+        <div class="terminal__line terminal__out"><span class="terminal__key">WM      </span><span class="terminal__val">niri</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~</span><span class="terminal__sep">$</span> <span class="terminal__cmd" id="typewriter-cmd"></span><span class="terminal__cursor" id="typewriter-cursor">█</span></div>
+        <div class="terminal__line terminal__out" id="typewriter-out"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLI -->
+<section class="section" id="cli">
+  <div class="container">
+    <div class="section__label">Fig. 02 — CLI Reference</div>
+    <h2 class="section__title">Command line flags.</h2>
+    <p class="section__subtitle">Simple, explicit, no surprises.</p>
+
+    <div class="cmd-table">
+      <div class="cmd-row">
+        <div class="cmd-flag">-o, --os [name]</div>
+        <div class="cmd-desc">Display OS-specific art. Optionally force a specific OS logo — e.g. <code>--os arch</code></div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-flag">-i, --image [path]</div>
+        <div class="cmd-desc">Display an image instead of ASCII art using the Kitty graphics protocol. Optionally specify an image path</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-flag">-c, --config</div>
+        <div class="cmd-desc">Launch the built-in TUI configuration editor — no manual file editing needed</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-flag">-r, --refresh</div>
+        <div class="cmd-desc">Force refresh of cached values — OS name and GPU detection</div>
+      </div>
+      <div class="cmd-row">
+        <div class="cmd-flag">-u, --update</div>
+        <div class="cmd-desc">Update config file to the latest version while preserving all your existing settings</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIG -->
+<section class="section" id="config">
+  <div class="container">
+    <div class="section__label">Fig. 03 — Configuration</div>
+    <h2 class="section__title">TOML, or just use the TUI.</h2>
+    <p class="section__subtitle">Config lives at <code>~/.config/zfetch/config.toml</code> — created automatically on first run. Edit it directly or launch <code>zfetch --config</code> and never touch a file.</p>
+
+    <div class="hero__terminal">
+      <div class="terminal__bar">
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-dot"></span>
+        <span class="terminal__bar-title">~/.config/zfetch/config.toml</span>
+      </div>
+      <div class="terminal__body terminal__body--tall">
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># display</span></div>
+        <div class="terminal__line terminal__out">[display]</div>
+        <div class="terminal__line terminal__out">os_art       = <span class="terminal__bool">true</span></div>
+        <div class="terminal__line terminal__out">art_position = <span class="terminal__string">"left"</span></div>
+        <div class="terminal__line terminal__out">box_style    = <span class="terminal__string">"rounded"</span></div>
+        <div class="terminal__line terminal__out">nerd_fonts   = <span class="terminal__bool">true</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># theme & colors</span></div>
+        <div class="terminal__line terminal__out">[colors]</div>
+        <div class="terminal__line terminal__out">theme  = <span class="terminal__string">"catppuccin"</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out"><span class="terminal__comment"># what to show</span></div>
+        <div class="terminal__line terminal__out">[core]</div>
+        <div class="terminal__line terminal__out">os = <span class="terminal__bool">true</span>  kernel = <span class="terminal__bool">true</span>  uptime = <span class="terminal__bool">true</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">[hardware]</div>
+        <div class="terminal__line terminal__out">cpu = <span class="terminal__bool">true</span>  gpu = <span class="terminal__bool">true</span>  memory = <span class="terminal__bool">true</span></div>
+        <div class="terminal__line terminal__spacer"></div>
+        <div class="terminal__line terminal__out">[userspace]</div>
+        <div class="terminal__line terminal__out">shell = <span class="terminal__bool">true</span>  wm = <span class="terminal__bool">true</span>  terminal = <span class="terminal__bool">true</span>  packages = <span class="terminal__bool">true</span></div>
+      </div>
+    </div>
+
+    <div class="install-block">
+      <div class="verify-block__label">Fig. 03a — Install</div>
+      <div class="terminal__body terminal__body--flat">
+        <div class="terminal__line"><span class="terminal__prompt">you@host</span><span class="terminal__sep">:</span><span class="terminal__path">~/zfetch-rs</span><span class="terminal__sep">$</span> <span class="terminal__cmd">cargo install --path .</span></div>
+        <div class="terminal__line terminal__out terminal__out--muted"># or grab the precompiled binary from the releases page</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEMES -->
+<section class="section" id="themes">
+  <div class="container">
+    <div class="section__label">Fig. 04 — Built-in Themes</div>
+    <h2 class="section__title">Nine themes, zero setup.</h2>
+    <p class="section__subtitle">Set <code>theme = "name"</code> in your config or pick one in the TUI. Switch anytime.</p>
+
+    <div class="theme-grid">
+      <div class="theme-card theme-card--default">
+        <div class="theme-card__name">default</div>
+        <div class="theme-card__sub">follows your terminal colors</div>
+      </div>
+      <div class="theme-card theme-card--dracula">
+        <div class="theme-card__name">dracula</div>
+        <div class="theme-card__sub">purple · pink · dark</div>
+      </div>
+      <div class="theme-card theme-card--catppuccin">
+        <div class="theme-card__name">catppuccin</div>
+        <div class="theme-card__sub">pastel · warm · soft</div>
+      </div>
+      <div class="theme-card theme-card--nord">
+        <div class="theme-card__name">nord</div>
+        <div class="theme-card__sub">arctic · cool blue · minimal</div>
+      </div>
+      <div class="theme-card theme-card--gruvbox">
+        <div class="theme-card__name">gruvbox</div>
+        <div class="theme-card__sub">retro · warm · earthy</div>
+      </div>
+      <div class="theme-card theme-card--eldritch">
+        <div class="theme-card__name">eldritch</div>
+        <div class="theme-card__sub">dark · eerie · green</div>
+      </div>
+      <div class="theme-card theme-card--kanagawa">
+        <div class="theme-card__name">kanagawa</div>
+        <div class="theme-card__sub">japanese ink · deep blue</div>
+      </div>
+      <div class="theme-card theme-card--tokyonight">
+        <div class="theme-card__name">tokyonight</div>
+        <div class="theme-card__sub">neon · city · dark blue</div>
+      </div>
+      <div class="theme-card theme-card--onedark">
+        <div class="theme-card__name">onedark</div>
+        <div class="theme-card__sub">atom · balanced · clean</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="zfetch.js"></script>
+</body>
+</html>
