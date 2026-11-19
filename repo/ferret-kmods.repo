@@ -2,4 +2,6 @@
 name=Ferret Linux Kernel Modules
 baseurl=https://ferret-linux.github.io/repo/kmods/x86_64/
 enabled=1
-gpgcheck=0
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://ferret-linux.github.io/repo/RPM-GPG-KEY-ferret
